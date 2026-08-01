@@ -1,11 +1,8 @@
-# استخدام صورة Nginx خفيفة وسريعة
+# Use a lightweight Nginx image
 FROM nginx:alpine
 
-# نسخ كافة ملفات المشروع (index.html والمجلدات مثل images) إلى المجلد المخصص في Nginx
+# Copy all files from current directory to Nginx public folder
 COPY . /usr/share/nginx/html
 
-# كشف المنفذ 80
+# Expose port 80
 EXPOSE 80
-
-# تشغيل Nginx في المقدمة
-CMD ["nginx", "-g", "daemon off;"]
